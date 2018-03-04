@@ -1,0 +1,110 @@
+<div align="left">
+  <h1>Welcome {{name}}</h1>
+  <h2>Value returns from GreetMethod : {{greetUser()}}</h2>
+  <h2> Site URL : {{siteURL}}</h2>
+  
+  <!-- Property Bindings -->
+  <h2>Property Bindings</h2>
+  <div align="center">
+  	
+  	<input type="text" value="welcome AngularJS"/>
+  	<input type="text" bind-disabled="isDisabled" value="test"/>
+  </div>
+  
+  <!-- Class Bindings -->
+  <h2> Class Binidings</h2>
+  <div align="center">
+  	<h3 class="text-success">Text Success</h3>
+  	<h3 class={{successClass}}> Text Success Using class property</h3>
+  	<h3 [ngClass]="messageClasses"> ng Directive custom attribute</h3>
+  	
+  </div>
+  
+  <!-- Style Bindings Bindings -->
+  <h2> Style Binidings</h2>
+  <div align="center">
+  	<h3 [style.color]="'orange'">Style Bindings</h3>
+  	<h3 [style.color]="hasError?'red':'green'">Style Bindings with Conditional expression</h3>
+  	<h3 [style.color]="highLightColor">Style Bindings using class property</h3>
+  	<h3 [ngStyle]="titleStyles">Style Bindings multiple styles from class property</h3>
+  	
+  </div>
+  
+<!-- Event Bindings -->
+  <h2> Event Binding</h2>
+  <div align="center">
+  <h3>Simple Click Event : <button (click)="onClick();">Greet</button></h3> {{greetingMsg}}
+   <h3>Information Click Event : <button (click)="onClickEvent($event);">Greet</button></h3> {{greetingMsg}}
+   </div>
+   
+  <!-- Template Binding -->
+   <h2>Template Binding</h2>
+  <div align="center">
+ 
+  <input #myInput type="text"><button (click)="logMessage(myInput.value);">Log</button>
+  
+   </div>
+   
+  <!-- Two Way Bindings -->
+  <h2>Template Binding</h2>
+  <div align="center">
+  	<input [(ngModel)]="nameTwoWay" type="text">{{nameTwoWay}}
+  </div>
+  
+   <!-- Structural Bindings -->
+   <h2>Structural Bindings</h2>
+   <div align="center">
+   	 <h3 *ngIf="displayName; then thenBlock;else elseBlock"></h3>
+   </div>
+   <ng-template #thenBlock>
+   		<h3>Structural Bindings Visible</h3>
+   </ng-template>
+   <ng-template #elseBlock>
+   	<h3>Hidden</h3>
+   </ng-template>
+   
+   <!-- Structural Bindings Switch statement -->
+    <div [ngSwitch]="color" align="center">
+    	<div *ngSwitchCase="'red'">You Picked Red Color</div>
+    	<div *ngSwitchCase="'blue'">You Picked Blue Color</div>
+    	<div *ngSwitchCase="'green'">You Picked Green Color</div>
+    	<div *ngSwitchDefault>Pick Again</div>
+    </div>
+    
+    <!-- For Loop -->
+    <div align="center" *ngFor="let color of colors; index as i;first as f">
+    	<h3>{{i}} {{f}} {{color}}</h3>
+    </div>
+    
+    <!-- Components interaction -->
+   <h2>Components interaction </h2>
+    <div align="center">
+    	<h3>{{message}}</h3>
+    	<button (click)="fireEvent();">Send Message to Parent</button>
+    </div>
+    
+   <!-- Pipes -->
+   <h2>Pipes</h2>
+   <div align="center">
+   		
+		<h3>To Lower Case: {{pipeMsg | lowercase}}</h3>
+   		<h3>Upper Case: {{pipeMsg | uppercase}}</h3>
+   		<h3>Title Case: {{pipeMsg | titlecase}}</h3>
+   		<h3> Slice(equals to substring method): {{pipeMsg | slice:3:5}}</h3>
+   		<h3>Json format: {{person | json}}</h3>
+   		
+   		<h3>Number(5.678):1 integer max 3 decimal place-->{{5.678 | number:'1.2-3'}}</h3>
+   		<h3>Number(5.678):3 integer min-3 max 5 decimal place-->{{5.678 | number:'3.4-5'}}</h3>
+   		<h3>Number(5.678):3 integer min-3 max 5 decimal place-->{{5.678 | number:'3.1-2'}}</h3>
+   		
+   		<h3>percentage 0.25 : {{0.25|percent}}</h3>
+   		<h3>Currency 0.25(Default USD) : {{0.25|currency}}</h3>
+   		<h3>EURO 0.25: {{0.25|currency :'EUR'}}</h3>
+   		<h3>EURO 0.25: {{0.25|currency :'EUR':'code'}}</h3>
+   		
+   		<h3>Date: {{date}}</h3>
+   		<h3>ShortDate: {{date| date:shortDate}}</h3>
+   		<h3>ShortTime: {{date| date:shortTime}}</h3>
+   		
+   </div>
+ </div>

@@ -1,0 +1,34 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    From App Component (Root)- {{childMessage}}
+  </h1>
+  <!-- Note: parentData is a input decorator to send message to child .
+  			If you want to send message from parent component to child 
+  			component declare that attribute -->
+  <app-test (childEvent)="childMessage=$event" [parentData]="parentMessage"></app-test>
+  
+  	<!-- Component interacton
+  		childMessage = class variable in appcomponet
+  		$event - Injected from Child component
+  		
+  		parentMessage= class variable in parentComponent
+  		[parentData]= will be referred from child Component
+  	 -->
+</div>
+
+<div style="text-align:center">
+	<app-employee-list></app-employee-list>
+</div>
+<!-- This is used for routing the request ot different components -->
+<div style="text-align:left">
+	<h1>Routing and Navigation</h1>
+	
+	<nav>
+		<a routerLink="/departments" routerActiveLink="active">Departments</a>
+		<a routerLink="/employees" routerActiveLink="active">Employees</a>
+	</nav>
+	
+	<router-outlet></router-outlet>
+</div>
+
